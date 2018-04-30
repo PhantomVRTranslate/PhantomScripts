@@ -67896,14 +67896,6 @@ var DocumentGet = function (_Module) {
     value: function triggerEvent(classname, key) {
       var el = document.getElementsByClassName(classname)[0];
       el.click();
-      var body = document.body;
-      var div = document.createElement("div");
-      div.classList.add("text-vr");
-      div.innerHTML = Math.floor(Math.random() * 1000000000000);
-      div.addEventListener("click", function () {
-        return div.remove();
-      });
-      body.appendChild(div);
     }
   }, {
     key: "_emit",
