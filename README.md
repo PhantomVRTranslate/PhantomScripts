@@ -1,6 +1,6 @@
 # PhantomScripts
 
-## ![Checkout our demo page for this feature](https://phantomvrtranslate.github.io/Phantom-Demo-Site/)
+## [Checkout our demo page for this feature](https://phantomvrtranslate.github.io/Phantom-Demo-Site/)
 
 
 ## Preview a 3D rendering of your VR HTML page
