@@ -1,7 +1,7 @@
 # PhantomScripts
 
 ## Preview a 3D rendering of your VR HTML page
-+ Early Stage Proof of Concept where users can render image, texts, and video content in a 3d environment using specified semantic class names and attributes with `PhantomScripts`
++ Early Stage proof of concept where users can render image, texts, and video content in a 3d environment using specified semantic class names and attributes with `PhantomScripts`
 
 
 ### Phantom Class Names and Attributes 
