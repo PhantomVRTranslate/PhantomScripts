@@ -1321,7 +1321,6 @@ var WelcomeToVR = function (_React$Component) {
   }, {
     key: "mergeState",
     value: function mergeState(addContent, removeContent) {
-      console.log("merge state", addContent, removeContent);
       var store = (0, _lodash.merge)({}, this.state.store, addContent);
       removeContent.forEach(function (content) {
         delete store[content];
@@ -1347,7 +1346,6 @@ var WelcomeToVR = function (_React$Component) {
     value: function makeNavLinks() {
       var theContent = Object.values(this.state.store) || [];
       var navLinks = [];
-
       theContent.forEach(function (content) {
         if (content.type === "navlink-vr") {
           navLinks.push({ label: content.navTitle, link: content.key });
@@ -1369,17 +1367,17 @@ var WelcomeToVR = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 82
           }
         },
         _react2.default.createElement(_reactVr.Pano, { source: { uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg" }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 83
           }
         }),
         _react2.default.createElement(_title2.default, { activateScene: this.activateScene, __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 84
           }
         }),
         this.state.enterScene ? _react2.default.createElement(
@@ -1387,7 +1385,7 @@ var WelcomeToVR = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 86
             }
           },
           _react2.default.createElement(_PageConstructor2.default, {
@@ -1395,13 +1393,13 @@ var WelcomeToVR = function (_React$Component) {
             clickEvent: this.state.clickEvent,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 87
             }
           })
         ) : _react2.default.createElement(_reactVr.View, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95
+            lineNumber: 93
           }
         }),
         _react2.default.createElement(_Navbar2.default, {
@@ -1410,7 +1408,7 @@ var WelcomeToVR = function (_React$Component) {
           page: { type: { name: "hello" } },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97
+            lineNumber: 95
           }
         })
       );
@@ -60643,27 +60641,23 @@ var PageConstructor = function (_React$Component) {
 
       Object.values(theContent).forEach(function (el) {
         if (el.type === 'carousel-image-vr') {
-          console.log('el.type is imageCarosel', el, el.content, el.flex);
           carouselImage.content.push(el.content);
           carouselImage.flex = parseInt(el.flex) || 2;
         } else if (el.type === 'gallery-item') {
           galleryItems.content.push(el.content);
         }
       });
-      console.warn('before galleryitems map', galleryItems);
 
       galleryItems.content = galleryItems.content.map(function (content, i) {
         return _react2.default.createElement(_GalleryItem2.default, { src: content, key: i, __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 54
           }
         });
       });
-      console.warn('post galleryitems map', galleryItems);
 
       if (galleryItems.content.length > 1) theContent.push(galleryItems);
       if (carouselImage.content.length > 1) theContent.push(carouselImage);
-      console.warn('THECONTENT AFTER GALLERYITEMS PUSH', theContent);
 
       var toRender = [];
       var key = void 0;
@@ -60680,7 +60674,7 @@ var PageConstructor = function (_React$Component) {
                 maxTextLength: 120,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 71
+                  lineNumber: 67
                 }
               },
               el.content
@@ -60695,16 +60689,15 @@ var PageConstructor = function (_React$Component) {
               click: _this2.state.clickEvent,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 79
               }
             }));
             break;
 
           case "video-vr":
-            console.log('in VIDEO carosel');
             toRender.push(_react2.default.createElement(_VideoCard2.default, { key: el.key, src: el.content, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 93
+                lineNumber: 88
               }
             }));
             break;
@@ -60716,7 +60709,7 @@ var PageConstructor = function (_React$Component) {
               _Gallery2.default,
               { key: key, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 100
+                  lineNumber: 95
                 }
               },
               galleryItems.content.map(function (item) {
@@ -60726,9 +60719,7 @@ var PageConstructor = function (_React$Component) {
             break;
 
           case "image-carousel":
-            console.log('in image carosel');
             key = Math.floor(Math.random() * 1000000000000);
-            console.log('this is el.flex and el:', el.flex, el);
             toRender.push(_react2.default.createElement(
               _Carousel2.default,
               {
@@ -60739,7 +60730,7 @@ var PageConstructor = function (_React$Component) {
                 maxTextLength: 120,
                 flex: el.flex || 2, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 109
+                  lineNumber: 102
                 }
               },
               "image"
@@ -60792,7 +60783,7 @@ var PageConstructor = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 172
+            lineNumber: 165
           }
         },
         _react2.default.createElement(
@@ -60807,7 +60798,7 @@ var PageConstructor = function (_React$Component) {
               transform: [{ translateX: this.state.slideLeft }]
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 173
+              lineNumber: 166
             }
           },
           components.map(function (comp) {
@@ -61058,8 +61049,6 @@ var TextCard = function (_React$Component) {
 
       var mergedCardStyling = babelHelpers.extends({}, defaultCardStyling, cardStyling);
 
-      console.log(mergedCardStyling);
-
       var defaultTextStyling = {
         width: "100%",
         height: "100%",
@@ -61079,7 +61068,7 @@ var TextCard = function (_React$Component) {
           flex: flex || 1,
           cardStyling: mergedCardStyling, __source: {
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 30
           }
         },
         _react2.default.createElement(
@@ -61088,7 +61077,7 @@ var TextCard = function (_React$Component) {
             style: mergedTextStyling,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 35
+              lineNumber: 33
             }
           },
           this.props.src || this.props.text || this.props.children
@@ -61228,8 +61217,6 @@ var Gallery = function (_React$Component) {
 
       var mergedGalleryItemStyling = babelHelpers.extends({}, defaultStyling, galleryItemStyling);
 
-      console.log(mergedGalleryItemStyling);
-
       return _react2.default.createElement(
         _reactVr.View,
         {
@@ -61237,7 +61224,7 @@ var Gallery = function (_React$Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 46
           }
         },
         child
@@ -61269,7 +61256,7 @@ var Gallery = function (_React$Component) {
           cardStyling: galleryStyling,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 69
           }
         },
         _react2.default.createElement(
@@ -61286,7 +61273,7 @@ var Gallery = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 78
+              lineNumber: 76
             }
           },
           this.state.cards
@@ -61339,8 +61326,6 @@ var GalleryItem = function (_React$Component) {
             var mergedStyling = babelHelpers.extends({}, defaultStyling, itemStyling);
             var mergedTextStyling = babelHelpers.extends({}, defaultTextStyling, itemStyling);
 
-            console.log(mergedStyling);
-
             switch (this.props.type) {
                 case "image":
                     content = _react2.default.createElement(_reactVr.Image, {
@@ -61348,7 +61333,7 @@ var GalleryItem = function (_React$Component) {
                         style: mergedStyling,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 30
+                            lineNumber: 29
                         }
                     });
                     break;
@@ -61358,7 +61343,7 @@ var GalleryItem = function (_React$Component) {
                         style: mergedStyling,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 36
+                            lineNumber: 35
                         }
                     });
                     break;
@@ -61369,7 +61354,7 @@ var GalleryItem = function (_React$Component) {
                             style: mergedTextStyling,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 42
+                                lineNumber: 41
                             }
                         },
                         this.props.text || this.props.children
@@ -61381,7 +61366,7 @@ var GalleryItem = function (_React$Component) {
                 _reactVr.View,
                 { flex: this.props.flex, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 51
+                        lineNumber: 50
                     }
                 },
                 content
@@ -61555,8 +61540,6 @@ var ImageCaption = function (_React$Component) {
             displayCaption: _this.props.alwaysShow || false
         };
 
-        console.log(_this.state);
-
         return _this;
     }
 
@@ -61578,13 +61561,11 @@ var ImageCaption = function (_React$Component) {
 
             var toggleHandler = this.props.alwaysShow ? function () {} : this.toggleCaption.bind(this);
 
-            console.log(this.state, toggleHandler);
-
             return _react2.default.createElement(
                 _CardContainer2.default,
                 { flex: this.props.flex, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 43
+                        lineNumber: 41
                     }
                 },
                 _react2.default.createElement(
@@ -61596,7 +61577,7 @@ var ImageCaption = function (_React$Component) {
                             height: '100%'
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 44
+                            lineNumber: 42
                         }
                     },
                     _react2.default.createElement(_reactVr.Image, {
@@ -61608,7 +61589,7 @@ var ImageCaption = function (_React$Component) {
 
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 51
+                            lineNumber: 49
                         }
                     }),
                     _react2.default.createElement(
@@ -61621,7 +61602,7 @@ var ImageCaption = function (_React$Component) {
                                 alignItems: 'center'
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 59
+                                lineNumber: 57
                             }
                         },
                         _react2.default.createElement(
@@ -61638,7 +61619,7 @@ var ImageCaption = function (_React$Component) {
                                     padding: '10'
                                 }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 66
+                                    lineNumber: 64
                                 }
                             },
                             this.props.caption || this.props.children
@@ -61854,8 +61835,6 @@ var Carousel = function (_React$Component) {
       var leftButtonStyling = babelHelpers.extends({}, mergedButtonStyling);
       delete leftButtonStyling.right;
 
-      console.log(rightButtonStyling, leftButtonStyling);
-
       var defaultArrowStyling = {
         color: "white",
         fontSize: 80,
@@ -61869,7 +61848,7 @@ var Carousel = function (_React$Component) {
         { flex: this.props.flex || 1,
           cardStyling: cardStyling, __source: {
             fileName: _jsxFileName,
-            lineNumber: 173
+            lineNumber: 171
           }
         },
         _react2.default.createElement(
@@ -61881,7 +61860,7 @@ var Carousel = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 175
+              lineNumber: 173
             }
           },
           _react2.default.createElement(
@@ -61892,7 +61871,7 @@ var Carousel = function (_React$Component) {
               flex: this.props.flex,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 181
+                lineNumber: 179
               }
             },
             this.state.currentTextSlice
@@ -61902,7 +61881,7 @@ var Carousel = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 190
+                lineNumber: 188
               }
             },
             _react2.default.createElement(
@@ -61912,7 +61891,7 @@ var Carousel = function (_React$Component) {
                 onClick: this.props.type === "image" ? this.prevCard : this.prevSlice,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 191
+                  lineNumber: 189
                 }
               },
               _react2.default.createElement(
@@ -61921,7 +61900,7 @@ var Carousel = function (_React$Component) {
                   style: mergedArrowStyling,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 197
+                    lineNumber: 195
                   }
                 },
                 "<"
@@ -61934,7 +61913,7 @@ var Carousel = function (_React$Component) {
                 style: rightButtonStyling,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 203
+                  lineNumber: 201
                 }
               },
               _react2.default.createElement(
@@ -61943,7 +61922,7 @@ var Carousel = function (_React$Component) {
                   style: mergedArrowStyling,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 209
+                    lineNumber: 207
                   }
                 },
                 ">"
@@ -62474,7 +62453,6 @@ var Page1 = function (_React$Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      console.log(nextProps);
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
         toValue: 1024,
         duration: 2000,
@@ -62502,7 +62480,7 @@ var Page1 = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 63
           }
         },
         _react2.default.createElement(
@@ -62516,7 +62494,7 @@ var Page1 = function (_React$Component) {
             },
             flex: 2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 93
+              lineNumber: 92
             }
           },
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62524,7 +62502,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 101
+              lineNumber: 100
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62532,7 +62510,7 @@ var Page1 = function (_React$Component) {
             text: "Hello smelly",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 107
+              lineNumber: 106
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62540,7 +62518,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 111
+              lineNumber: 110
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62548,7 +62526,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 117
+              lineNumber: 116
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62556,7 +62534,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 121
+              lineNumber: 120
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62564,7 +62542,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 127
+              lineNumber: 126
             }
           })
         ),
@@ -62573,7 +62551,7 @@ var Page1 = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 150
+              lineNumber: 149
             }
           },
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62581,7 +62559,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 151
+              lineNumber: 150
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62589,7 +62567,7 @@ var Page1 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 155
+              lineNumber: 154
             }
           })
         ),
@@ -62598,7 +62576,7 @@ var Page1 = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 161
+              lineNumber: 160
             }
           },
           "ojpwef"
@@ -62695,7 +62673,6 @@ var Page2 = function (_React$Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      console.log(nextProps);
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
         toValue: 1024,
         duration: 2000,
@@ -62723,7 +62700,7 @@ var Page2 = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 63
           }
         },
         _react2.default.createElement(
@@ -62747,7 +62724,7 @@ var Page2 = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 73
             }
           },
           "opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef"
@@ -62757,7 +62734,7 @@ var Page2 = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 151
+              lineNumber: 150
             }
           },
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62765,7 +62742,7 @@ var Page2 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 152
+              lineNumber: 151
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62773,7 +62750,7 @@ var Page2 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 156
+              lineNumber: 155
             }
           })
         ),
@@ -62782,7 +62759,7 @@ var Page2 = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 162
+              lineNumber: 161
             }
           },
           "ojpwef"
@@ -62879,7 +62856,6 @@ var Page3 = function (_React$Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      console.log(nextProps);
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
         toValue: 1024,
         duration: 2000,
@@ -62907,7 +62883,7 @@ var Page3 = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 63
           }
         },
         _react2.default.createElement(
@@ -62920,7 +62896,7 @@ var Page3 = function (_React$Component) {
             maxTextLength: 120,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 73
             }
           },
           "opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef"
@@ -62930,7 +62906,7 @@ var Page3 = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 140
+              lineNumber: 139
             }
           },
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62938,7 +62914,7 @@ var Page3 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 141
+              lineNumber: 140
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
@@ -62946,7 +62922,7 @@ var Page3 = function (_React$Component) {
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 145
+              lineNumber: 144
             }
           })
         ),
@@ -62955,7 +62931,7 @@ var Page3 = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 151
+              lineNumber: 150
             }
           },
           "ojpwef"
@@ -63219,8 +63195,10 @@ var NavbarItem = function (_React$Component) {
           isSelected: true,
           fontSize: 0.11
         });
+        if (this.props.currPage !== 'hello') {
+          this.props.changePage(this.props.currPage);
+        }
 
-        this.props.changePage(this.props.currPage);
         this.setState({ isTriggered: true });
         setTimeout(function () {
           return _this2.props.changePage(_this2.props.link);
@@ -63254,7 +63232,7 @@ var NavbarItem = function (_React$Component) {
           onHover: function onHover() {},
           onLeave: function onLeave() {}, __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 78
           }
         },
         _react2.default.createElement(
@@ -63265,7 +63243,7 @@ var NavbarItem = function (_React$Component) {
               color: "#FFF"
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 86
+              lineNumber: 88
             }
           },
           this.props.children

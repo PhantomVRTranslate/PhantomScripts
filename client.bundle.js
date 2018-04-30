@@ -67870,8 +67870,6 @@ var DocumentGet = function (_Module) {
   function DocumentGet() {
     babelHelpers.classCallCheck(this, DocumentGet);
 
-    console.log("document get");
-
     var _this = babelHelpers.possibleConstructorReturn(this, (DocumentGet.__proto__ || Object.getPrototypeOf(DocumentGet)).call(this, "DocumentGet"));
 
     _this.userAgent = navigator.userAgent;
@@ -67884,7 +67882,6 @@ var DocumentGet = function (_Module) {
   babelHelpers.createClass(DocumentGet, [{
     key: "_setRNContext",
     value: function _setRNContext(rnctx) {
-      console.log("_setRNCOntext", rnctx);
       this._rnctx = rnctx;
     }
   }, {
@@ -67898,7 +67895,6 @@ var DocumentGet = function (_Module) {
     key: "triggerEvent",
     value: function triggerEvent(classname, key) {
       var el = document.getElementsByClassName(classname)[0];
-      console.log("triggerEvent el, classname, key", el, classname, key);
       el.click();
       var body = document.body;
       var div = document.createElement("div");
@@ -67970,7 +67966,6 @@ var DocumentGet = function (_Module) {
           node.classList.add(key);
           return nodeObj;
         case "carousel-image-vr":
-          console.log(node.getAttribute("flex-vr"));
           nodeObj[key]["content"] = node.getAttribute("src");
           nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
           node.classList.add(key);
