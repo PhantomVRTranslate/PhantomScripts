@@ -35,13 +35,6 @@ put video url into `src` tag to render the image
 <div src="https://anotherVideoUrlHere.jpg" class="video-vr" alt=""></div> 
 ```
 
-#### `image-flex` attribute
-change flex unit size of `image-vr` *default at 1* and `video-vr` *default at 2*
-```html
-<img src="https://imageToTakeUpMoreSpace.jpg" class="image-vr" image-flex="2" alt="" />
-<video src="https://videoToTakeLessSpace.jpg" class="video-vr" image-flex="1" alt="" />
-```
-
 #### `carousel-image-vr` class name 
 Use with any number of HTML tags with an image source to have all tagged content to appear
 within the a single 3d component
@@ -66,17 +59,13 @@ Add this class name on up to 6 HTML tags with image or video sources to render c
 <img src="https://video3.jpg" class="gallery-item" alt="" />
 ```
 
-#### `carousel-image-vr` class name 
-Use with any number of HTML tags with an image source to have all tagged content to appear
-within the a single 3d component
-+ renders the `<` & `>` page buttons to shift through the collection 
+#### `flex-vr` attribute
+change flex proportion of `text-vr`, `image-vr`, `video-vr`, and `image-carousel-vr` 
 ```html
-<img src="https://image1.jpg" class="image-vr" alt="" />
-<img src="https://image2.jpg" class="image-vr" alt="" />
-<img src="https://image3.jpg" class="image-vr"  alt="" />
-<img src="https://image4.jpg" class="image-vr"  alt="" />
-<img src="https://image5.jpg" class="image-vr"  alt="" />
+<img src="https://imageToTakeUpMoreSpace.jpg" class="image-vr" flex-vr="2" alt="" />
+<video src="https://videoToTakeLessSpace.jpg" class="video-vr" flex-vr="1" alt="" />
 ```
+
 
 ### Getting Started
 
@@ -115,14 +104,14 @@ within the a single 3d component
 <body>
   ...
   //renders single image file in its own component 
-    <img src="https://image1.jpg" class="item-vr" flex-image="2" alt="" />
+    <img src="https://image1.jpg" class="item-vr" flex-vr="2" alt="" />
   
   //renders single video file in its own component 
     <img src="https://video1.jpg" class="video-vr" alt="" />
   
   //renders multiple images and video within a gallery component 
     <img src="https://image2.jpg" class="gallery-item" alt="" />
-    <img src="https://image3.jpg" class="gallery-item"  ci-flex-vr="1" alt="" />
+    <img src="https://image3.jpg" class="gallery-item" alt="" />
     <img src="https://video2.jpg" class="gallery-item" alt="" />
     <img src="https://video3.jpg" class="gallery-item" alt="" />
   ...
