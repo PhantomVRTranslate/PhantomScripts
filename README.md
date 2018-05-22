@@ -72,21 +72,7 @@ change flex proportion of `text-vr`, `image-vr`, `video-vr`, and `image-carousel
 1. Copy and Paste the subsequent code under the body tag in your HMTL page 
 ```html
 <body>
-  <div style='position: absolute; z-index: 100000; height: 100vh; width: 100vw;' id="phantom"></div>
-    <script src="https://rawgit.com/PhantomVRTranslate/PhantomScripts/master/client.bundle.js"></script>
-    <script>
-      function startVR() {
-      window.hideBody(); 
-      let mobile = false;
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        mobile = true;
-        }
-      ReactVR.init(
-        'https://rawgit.com/PhantomVRTranslate/PhantomScripts/master/index.bundle.js',document.getElementById('phantom'), {mobile}
-      );
-      document.querySelector('[title="Full Screen"]').click(); 
-    }
-    </script>
+  <script src="https://rawgit.com/PhantomVRTranslate/PhantomScripts/master/phantom.js"></script>
   ...
 </body> 
 ```
