@@ -71,10 +71,7 @@ change flex proportion of `text-vr`, `image-vr`, `video-vr`, and `image-carousel
 
 1. Copy and Paste the subsequent code under the body tag in your HMTL page 
 ```html
-<body>
   <script src="https://rawgit.com/PhantomVRTranslate/PhantomScripts/master/phantom.js"></script>
-  ...
-</body> 
 ```
 2. Create a any html element with an onlcick event handler of 'startVR()' within the body of your HTML page
 + we recommend using a button
